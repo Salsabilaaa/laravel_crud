@@ -15,6 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tabel', function () {
-    return view('tabel');
-});
+Route::resource('post', 'BookController');

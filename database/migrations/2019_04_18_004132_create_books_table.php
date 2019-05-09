@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCrudTable extends Migration
+class CreateBooksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateCrudTable extends Migration
      */
     public function up()
     {
-        Schema::create('crud', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('alamat');
+        Schema::create('books', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('judul');
+            $table->string('penerbit');
+            $table->integer('tahun_terbit');
+            $table->string('pengarang');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateCrudTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('crud');
+        Schema::dropIfExists('books');
     }
 }
